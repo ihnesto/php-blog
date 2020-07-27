@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
     {% if title %}
         <title>Flask Blog - {{ title }}</title>
@@ -26,18 +26,18 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
+              <a class="nav-item nav-link" href="/">Home</a>
+              <a class="nav-item nav-link" href="/about">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
+                <a class="nav-item nav-link" href="/post/addpost">New Post</a>
+                <a class="nav-item nav-link" href="/user/account">Account</a>
+                <a class="nav-item nav-link" href="/user/logout">Logout</a>
               {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
+                <a class="nav-item nav-link" href="/user/login">Login</a>
+                <a class="nav-item nav-link" href="/user/register">Register</a>
               {% endif %}
             </div>
           </div>
