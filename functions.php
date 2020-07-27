@@ -2,14 +2,14 @@
 
 function login() {
     echo "/login";
-    $form = new Form($login_form);
+    // $form = new Form($login_form);
 
-    if ($form->validate() == true) {
+    // if ($form->validate() == true) {
         
-        redirect('/');
-    } else {
-        $twig->render('login.html', [ 'form' => $form]);
-    }
+    //     redirect('/');
+    // } else {
+    //     $twig->render('login.html', [ 'form' => $form]);
+    // }
 
 }
 
