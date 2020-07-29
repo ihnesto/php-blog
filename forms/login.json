@@ -1,0 +1,48 @@
+{
+    "username" : {
+            "label" : "Email",
+            "labelAttr" : {
+                "class" : "form-control-label",
+                "for" : "email"
+            },
+            "labelElement" : "",
+            "tag" : "input",
+            "tagElement" : "",
+            "tagAttr" : {
+                "type" : "text",
+                "name" : "email",
+                "id" :  "email",
+                "value" : "",
+                "class" : "form-control form-control-lg",
+                "opts" : "required"
+            },
+            "validators" : {},
+            "errors" : {
+                "is_error" : false,
+                "errorMsg" : "You must enter valid email address"
+            }
+    },
+    "password" : {
+        "label" : "Password",
+        "labelAttr" : {
+            "class" : "form-control-label",
+            "for" : "password"
+        },
+        "tag" : "input",
+        "tagAttr" : {
+            "type" : "text",
+            "name" : "password",
+            "id"    : "password",
+            "value" : "",
+            "class" : "form-control form-control-lg",
+            "opts" : "required"
+        },
+        "labelElement" : "",
+        "tagElement" : "",
+        "validators" : {},
+        "errors" : {
+            "is_error" : false,
+            "errorMsg" : "You must enter valid email password"
+        }
+    }
+}
