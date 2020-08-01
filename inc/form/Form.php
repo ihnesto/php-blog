@@ -1,5 +1,6 @@
 <?php
 
+const __BLOG_WORK_DIR__ = '../..';
 class Form {
 
     private $form;
@@ -7,22 +8,34 @@ class Form {
     function __construct($formName) {   
 
         $json = file_get_contents(__BLOG_WORK_DIR__ . '/forms/' . $formName . '.json');
-        $this->form = json_decode($json, TRUE);
-        //var_dump($this->form);;
-        foreach($this->form as $fieldName => $fieldValue) {
-            if ($fieldValue['tag'] == 'input') {
-                $labelElement = '<label for="' . $fieldValue['labelAttr']['for'];
-                $labelElement = '" class="' . $fieldValue['tagAttr']['class'] . '"></label>';
-                $this->form[$fieldName]['labelElement'] = $labelElement;
-                $tagElement = '<' . $fieldValue['tag'];
-                $tagElement .= ' type="' . $fieldValue['tagAttr']['type'];
-                $tagElement .= '" name="' . $fieldValue['tagAttr']['name'];
-                $tagElement .= '" value="' . $fieldValue['tagAttr']['value'];
-                $tagElement .= '" class="' . $fieldValue['tagAttr']['class'] . '">';
-                $this->form[$fieldName]['tagElement'] = $tagElement;
+        $this->form = [
+            'src' => json_decode($json, TRUE),
+            'htmlElements' => []
+        ];
+        foreach( $this->form['src'] as $elemName => $elemValue) {
+            $label = $elemValue['label'];
+            $labelAttr = $elemValue['labelAttr'];
+            $labelAttrStr = '';
+            foreach($labelAttr as $attrName => $attrValue) {
+                $labelAttrStr .= " $attrName=\"$attrValue\"";
             }
+            $labelElement = "<label$labelAttrStr>$label</label>";
+            $tag = $elemValue['tag'];
+            $tagAttr = $elemValue['tagAttr'];
+            $tagAttrStr = '';
+            foreach($tagAttr as $attrName => $attrValue) {
+                $tagAttrStr .= " $attrName=\"$attrValue\"";
+            }
+            if ($tag == 'input') {
+                $tagElement = "<input$tagAttrStr>";
+            }
+            $this->form['htmlElements'][$elemName] = [
+                'labelElement' => $labelElement,
+                'tagElement' => $tagElement
+            ];
         }
-        var_dump($this->form);
+        
+        
     }
 
     function getForm() {
@@ -35,3 +48,6 @@ class Form {
         return false;
     }
 }
+
+$f = new Form('login');
+var_dump($f->getForm()['htmlElements']);

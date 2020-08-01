@@ -1,26 +1,19 @@
 {
-    "username" : {
+    "email" : {
             "label" : "Email",
             "labelAttr" : {
                 "class" : "form-control-label",
                 "for" : "email"
             },
-            "labelElement" : "",
             "tag" : "input",
-            "tagElement" : "",
             "tagAttr" : {
                 "type" : "text",
                 "name" : "email",
                 "id" :  "email",
                 "value" : "",
-                "class" : "form-control form-control-lg",
-                "opts" : "required"
+                "class" : "form-control form-control-lg"            
             },
-            "validators" : {},
-            "errors" : {
-                "is_error" : false,
-                "errorMsg" : "You must enter valid email address"
-            }
+            "validators" : {}
     },
     "password" : {
         "label" : "Password",
@@ -32,17 +25,26 @@
         "tagAttr" : {
             "type" : "text",
             "name" : "password",
-            "id"    : "password",
+            "id" :  "password",
             "value" : "",
-            "class" : "form-control form-control-lg",
-            "opts" : "required"
+            "class" : "form-control form-control-lg"            
         },
-        "labelElement" : "",
-        "tagElement" : "",
-        "validators" : {},
-        "errors" : {
-            "is_error" : false,
-            "errorMsg" : "You must enter valid email password"
-        }
+        "validators" : {}
+    },
+    "loginBtn" : {
+        "label" : "Password",
+        "labelAttr" : {
+            "class" : "form-control-label",
+            "for" : "password"
+        },
+        "tag" : "input",
+        "tagAttr" : {
+            "type" : "submit",
+            "name" : "loginSubmit",
+            "id" :  "loginSubmit",
+            "value" : "Login",
+            "class" : "btn btn-outline-info"            
+        },
+        "validators" : {}
     }
 }
